@@ -1,4 +1,4 @@
-from flask import Flask, Response, render_template, redirect, url_for, flash, request
+from flask import Flask, Response, render_template, redirect, url_for, flash, request, jsonify
 from forms import Exp, Pro, Awa, Cert
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -75,70 +75,89 @@ def homepage():
 
 @app.route('/add/experience', methods=["POST", "GET"])
 def form_exp():
-    form = Exp()
-    if form.validate_on_submit() and request.method == "POST":
-        pic = request.files['file']
-        image_file = save_image(pic)
-        new_experience = Experience(
-            title=form.title.data,
-            body=form.body.data,
-            img=image_file)
-        db.session.add(new_experience)
-        db.session.commit()
-        return redirect(url_for("homepage"))
-    return render_template("form.html", form=form, title='Experience')
+    key = request.args.get("key")
+    if key == os.environ.get("DB_KEY"):
+        form = Exp()
+        if form.validate_on_submit() and request.method == "POST":
+            pic = request.files['file']
+            image_file = save_image(pic)
+            new_experience = Experience(
+                title=form.title.data,
+                body=form.body.data,
+                img=image_file)
+            db.session.add(new_experience)
+            db.session.commit()
+            return redirect(url_for("homepage"))
+        return render_template("form.html", form=form, title='Experience')
+
+    else:
+        return jsonify(response={"UnAuthorised User": "Go away stranger"}), 401
 
 
 @app.route('/add/project', methods=["POST", "GET"])
 def form_pro():
-    form = Pro()
-    if form.validate_on_submit() and request.method == "POST":
-        pic = request.files['file']
-        image_file = save_image(pic)
-        new_project = Projects(
-            title=form.title.data,
-            link=form.link.data,
-            body=form.body.data,
-            img=image_file)
+    key = request.args.get("key")
+    if key == os.environ.get("DB_KEY"):
+        form = Pro()
+        if form.validate_on_submit() and request.method == "POST":
+            pic = request.files['file']
+            image_file = save_image(pic)
+            new_project = Projects(
+                title=form.title.data,
+                link=form.link.data,
+                body=form.body.data,
+                img=image_file)
 
-        db.session.add(new_project)
-        db.session.commit()
-        return redirect(url_for("homepage"))
-    return render_template("form.html", form=form, title='Project')
+            db.session.add(new_project)
+            db.session.commit()
+            return redirect(url_for("homepage"))
+        return render_template("form.html", form=form, title='Project')
+
+    else:
+        return jsonify(response={"UnAuthorised User": "Go away stranger"}), 401
 
 
 @app.route('/add/award', methods=["POST", "GET"])
 def form_awa():
-    form = Awa()
-    if form.validate_on_submit() and request.method == "POST":
-        pic = request.files['file']
-        image_file = save_image(pic)
-        new_award = Awards(
-            title=form.title.data,
-            link=form.link.data,
-            body=form.body.data, img=image_file)
+    key = request.args.get("key")
+    if key == os.environ.get("DB_KEY"):
+        form = Awa()
+        if form.validate_on_submit() and request.method == "POST":
+            pic = request.files['file']
+            image_file = save_image(pic)
+            new_award = Awards(
+                title=form.title.data,
+                link=form.link.data,
+                body=form.body.data, img=image_file)
 
-        db.session.add(new_award)
-        db.session.commit()
-        return redirect(url_for("homepage"))
-    return render_template("form.html", form=form, title='Award')
+            db.session.add(new_award)
+            db.session.commit()
+            return redirect(url_for("homepage"))
+        return render_template("form.html", form=form, title='Award')
+
+    else:
+        return jsonify(response={"UnAuthorised User": "Go away stranger"}), 401
 
 
 @app.route('/add/certificate', methods=["POST", "GET"])
 def form_cert():
-    form = Cert()
-    if form.validate_on_submit() and request.method == "POST":
-        pic = request.files['file']
-        image_file = save_image(pic)
-        new_cert = Certificate(
-            title=form.title.data,
-            link=form.link.data,
-            body=form.body.data, img=image_file)
+    key = request.args.get("key")
+    if key == os.environ.get("DB_KEY"):
+        form = Cert()
+        if form.validate_on_submit() and request.method == "POST":
+            pic = request.files['file']
+            image_file = save_image(pic)
+            new_cert = Certificate(
+                title=form.title.data,
+                link=form.link.data,
+                body=form.body.data, img=image_file)
 
-        db.session.add(new_cert)
-        db.session.commit()
-        return redirect(url_for("homepage"))
-    return render_template("form.html", form=form, title='Certificate')
+            db.session.add(new_cert)
+            db.session.commit()
+            return redirect(url_for("homepage"))
+        return render_template("form.html", form=form, title='Certificate')
+    else:
+        return jsonify(response={"UnAuthorised User": "Go away stranger"}), 401
 
 
 if __name__ == "__main__":

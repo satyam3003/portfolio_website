@@ -97,6 +97,15 @@ body {
     word-spacing: 4px;
 }
 
+@media screen and (max-width: 600px) {
+  .about_me p{font-size: 1rem; line-height: 1.2;}
+}
+
+@media screen and (max-width: 400px) {
+  .about_me p{word-spacing: 1px; line-height: 1;}
+}
+
+
 .skills_div{
     margin: 0;
     background-color: #000000bf;
