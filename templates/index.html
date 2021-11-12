@@ -1,0 +1,232 @@
+
+{% include "header.html" %}
+<section class="top_section">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0000009e;padding: 20px 10px">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="static/img/chrome.jpg" alt="" width="30" height="30" style="border-radius: 50%"
+                     class="d-inline-block align-text-top">
+                Satyam's
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#About">About</a>
+                    <a class="nav-link" href="#Skills">Skills</a>
+                    <a class="nav-link" href="#Experience">Experience</a>
+                    <a class="nav-link" href="#Projects">Projects</a>
+                    <a class="nav-link" href="#Awards">Awards</a>
+                    <a class="nav-link" href="#Certificate">Certificate</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="top_img">
+        <div class="text_top">
+            <h1>Hello I am <span class="sat"><i>Satyam</i></span>!</h1>
+        </div>
+
+    </div>
+</section>
+
+<section class="about_me" id ='About'>
+    <div class="container">
+        <h2>About me</h2>
+        <hr class="hr_main hr_yellow">
+        <br>
+        <p>I am Satyam Baldawa from Pune, India. Currently pursuing my bachelor's degree in Electronics Engineering from
+            Walchand College of Engineering, Sangli. I'm a freelance Web Developer and a python programmer. I specialize
+            in web designing, Front end Development, UI design, and Project management. I started development as a hobby
+            and have grown to a professional level.
+            I like involving myself in projects that require critical thinking and teamwork and believe in providing a
+            quick yet efficient output. I do have an interest in Robotics, Deep Learning, and Data Science. I am
+            reliable at soft skills, have a fine grip on communication, and hold a good appetite for knowledge. Virtuous
+            at systemization, an ace at team development, and knowledgeable regarding leadership and coordination.
+            <br>
+            A passion for karate and achievements at it have kept me associated with teamwork and a healthy spirit to
+            bear tough circumstances. I hope my inventiveness would shape your ideas and drive any predicament. </p>
+    </div>
+</section>
+
+<section class="skills_section" id="Skills">
+    <div class="skills_div">
+        <div class="container">
+            <h2>My Skills</h2>
+            <hr class="hr_main hr_white">
+            <br>
+            <div class="row ">
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>Python</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 80%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>Web Development and SEO</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 75%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>Data Science</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 50%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>C programming</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 55%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>C++ programming</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 40%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="skill_col">
+                        <h3>Arduino</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 60%; padding: 10px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <h4>Other software skills: <em>Photoshop, Proteus, Sketch-Up, AutoCAD</em></h4>
+        </div>
+    </div>
+</section>
+
+<section class="experience" id="Experience">
+    <div class="container">
+        <h2>Experience</h2>
+        <hr class="hr_main hr_blue">
+        <br>
+        <div class="row align-items-start">
+            {% for exp in experience %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="col_exp">
+                    <img class="experience_img" src="{{url_for('static', filename='uploaded_images/'+exp.img)}}" alt="">
+                    <div class="experience_info">
+                        <h4>{{exp.title}}</h4>
+                        <p>{{exp.body|safe}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="projects" id="Projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <hr class="hr_main hr_red">
+        <br>
+        <div class="row align-items-start">
+            {% for pro in projects %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="col_proj">
+                    <img class="experience_img" src="{{url_for('static', filename='uploaded_images/'+pro.img)}}" alt="">
+                    <div class="projects_info">
+                        <h4>{{pro.title}}</h4>
+                        <p>{{pro.body|safe}}</p>
+                        <a href="{{pro.link}}">
+                            <button type="button" class="btn btn-outline-light">View link</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section class="awards" id="Awards">
+    <div class="container">
+        <h2>Awards</h2>
+        <hr class="hr_main hr_green">
+        <br>
+        <div class="row align-items-start">
+            {% for awa in awards %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="col_awards">
+                    <img class="award_img" src="{{url_for('static', filename='uploaded_images/'+awa.img)}}" alt="">
+                    <h4>{{awa.title}}</h4>
+                    <p>{{awa.body|safe}}</p>
+                    <a href="{{awa.link}}">
+                        <button type="button" class="btn btn-outline-light">View link</button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="certificate" id="Certificate">
+    <div class="container">
+        <h2>Certificate</h2>
+        <hr class="hr_main hr_gray">
+        <br>
+        <div class="row align-items-start">
+            {% for cert in certificate %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="col_cert">
+                    <img class="award_img" src="{{url_for('static', filename='uploaded_images/'+cert.img)}}" alt="">
+                    <h4>{{cert.title}}</h4>
+                    <p>{{cert.body|safe}}</p>
+                    <a href="{{cert.link}}">
+                        <button type="button" class="btn btn-outline-light">View link</button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
